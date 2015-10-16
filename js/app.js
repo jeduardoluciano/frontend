@@ -5,6 +5,10 @@ angular.module('App', ['ionic', 'ionic-material', 'ngCordova'])
 })
 
 .run(function($ionicPlatform) {
+	
+	//test
+	
+	console.log(1);
   $ionicPlatform.ready(function() {
    
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
