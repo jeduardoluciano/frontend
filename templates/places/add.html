@@ -1,0 +1,67 @@
+<ion-view view-title="Adicione Casa de Samba"> 
+	<ion-content scroll="true" class="has-header has-footer">
+		<form name="placeForm" novalidate ng-submit="addPlace()" enctype="multipart/form-data">
+			<div class="list">
+				<div class="item item-divider">Dados da Casa de Samba</div>
+		
+				<label class="item item-input "> 
+					<span class="input-label">Nome</span>
+					<input type="text" name="name" ng-model="place.name" placeholder="Digite o nome do estabelecimento" required />       
+				</label>
+		        			
+				<label class="item item-input item-select">
+					<span class="input-label">Cidade</span>
+					<select name="addressCity" ng-model="place.address.city" required>
+						<option>Niterói</option>
+						<option selected="selected">Rio de Janeiro</option>
+						<option>São Gonçalo</option>
+					</select>			
+				</label> 
+						
+				<label class="item item-input "> 
+					<span class="input-label">Bairro</span>
+					<input type="text" placeholder="Digite o bairro do estabelecimento" ng-model="place.address.district" required>			
+				</label> 
+				
+				<label class="item item-input "> 
+					<span class="input-label">Endereço</span>
+					<input type="text" placeholder="Digite o endereço da casa de samba"	ng-model="place.address.name" required > 			
+				</label> 
+				
+				<label class="item item-input"> 
+					<span class="input-label">Número</span> 
+					<input type="number" placeholder="Qual o número do local?" ng-model="place.address.number">			
+				</label> 
+				
+				<label class="item item-input"> 
+					<span class="input-label">Logo</span>
+					<input type="file" />
+								
+				</label>
+				 
+				
+				<div class="item item-divider">Detalhes da Casa de Samba</div>
+				
+				<label class="item item-input item-stacked-label"> 
+					<span class="input-label">Telefone para Informações</span> 
+					<input type="text" placeholder="Digite um telefone de contato" ng-model="place.address.phone"> 
+				</label> 
+				
+				<label class="item item-input item-stacked-label" > 
+					<span class="input-label">WebSite ou Facebook</span> 
+					<input type="url" placeholder="Qual o endereço virtual do local" ng-model="place.website" name="website">					
+				</label>
+						
+				<label class="item item-input item-stacked-label"> 
+					<span class="input-label">Descrição</span> 
+					<input type="text"	placeholder="Digite uma breve descrição do evento"	ng-model="place.description"> 
+				</label>
+		
+				<button ng-disabled="placeForm.$invalid"  type="submit" class="button button-block button-positive">Enviar</button>				
+			</div>
+		</form>
+		
+		<pre>place = {{place | json}}</pre>
+	</ion-content>
+	<div ng-include="'templates/footer.html'"></div>
+</ion-view>

@@ -1,0 +1,12 @@
+<ion-view view-title="Casa de Samba"> 
+	<ion-content scroll="true" class="has-header has-footer">		 	
+		<a class="item item-thumbnail-left item-icon-right" ng-repeat="place in places" ng-href="#/app/places/details/{{place.id}}"> 
+			<img ng-src="{{ place.logo }}">
+			<h2>{{ place.name }}</h2>		
+			<p>{{ place.address.name }}, {{ place.address.number}} - {{ place.address.district }}</p>
+			<p> {{ place.address.city }}</p>	
+			<p>{{ place.address.phone }}</p>
+			<i class="icon ion-arrow-right-c"></i>			
+		</a>										
+	</ion-content> 
+</ion-view>

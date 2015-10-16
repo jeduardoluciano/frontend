@@ -1,0 +1,23 @@
+<ion-view title="Detalhes">
+	<ion-content>
+		<div class="list card">
+			<div class="item item-body"> 
+			
+				<h2>{{place.name}} </h2>
+    			<img  ng-src="{{ place.logo }}" class="full-image">
+    			
+    			<p>{{place.address.name}} {{place.address.number}}, {{place.address.district}} - {{place.address.city}}</p>
+				<div>Tel:{{place.address.phone}}</div>
+				
+				<div> <b>Conheça um pouco mais</b></div>
+    			<p>{{place.description}}</p>
+    			
+    			<div><b>Entre em contato</b></div>
+    			
+    			<a class="button button-balanced">Ligue agora</a>
+    			<a class="button button-positive" ng-href="{{place.fanpage}}">Facebook</a>
+    			<a class="button button-dark">WebSite</a>
+  			</div>
+		</div>
+	</ion-content>
+</ion-view>
