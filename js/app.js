@@ -1,4 +1,5 @@
-angular.module('App', ['ionic', 'ionic-material', 'ngCordova'])
+angular.module('appdosamba', 
+		['ionic', 'ionic-material', 'ngCordova', 'ionMdInput', 'appdosamba.login', 'appdosamba.places'])
 
 .constant('SERVER', {
 	urlJSON: 'https://s3.amazonaws.com/app-samba/json'
@@ -6,14 +7,11 @@ angular.module('App', ['ionic', 'ionic-material', 'ngCordova'])
 
 .run(function($ionicPlatform) {
 	
-	//test
-	
-	console.log(1);
   $ionicPlatform.ready(function() {
    
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+      //cordova.plugins.Keyboard.disableScroll(true);
     }
     
     if (window.StatusBar) {      
@@ -31,36 +29,10 @@ angular.module('App', ['ionic', 'ionic-material', 'ngCordova'])
 	    templateUrl: 'templates/menu.html',
 	    controller: 'AppCtrl'
 	})
-	.state('app.places', {
-	    url: '/places',
-	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/places/list.html',
-	        controller: 'PlaceCtrl'
-	      }
-	    }
-	  })
-	 .state('app.placeDetails', {
-	    url: '/places/details/:id',
-	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/places/details.html',
-	        controller: 'PlaceDetailsCtrl'
-	      }
-	    }
-	  })
-	.state('app.placeAdd', {
-	    url: '/places/add',
-	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/places/add.html',
-	        controller: 'PlaceAddCtrl'
-	      }
-	    }
-	  })
-	  
-	  $urlRouterProvider.otherwise('/app/places');
+	
+	$urlRouterProvider.otherwise('/app/login');
 })
+
 .factory('Loading', function($ionicLoading){
 	return {
 		show: function(){
@@ -77,7 +49,6 @@ angular.module('App', ['ionic', 'ionic-material', 'ngCordova'])
 		}
 	}
 })
-
 
 .factory('AWSService', function ($ionicPopup, Loading){
 	
